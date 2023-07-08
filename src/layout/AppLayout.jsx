@@ -4,7 +4,7 @@ import {
 import { useCallback, useMemo } from 'react';
 import { useNavigate, matchPath, useLocation } from 'react-router-dom';
 
-import Logo from '../assets/catalisa.png';
+import Logo from '../assets/logo-db1-group.png';
 import LocalStorageHelper from '../helpers/localstorage-helper';
 
 import './AppLayout.css';
@@ -66,7 +66,7 @@ function AppLayout({ children }) {
             marginLeft: 16,
             marginRight: 16,
           }}
-          alt="Catalisa Tech"
+          alt="Logotipo"
         />
 
         <Menu
@@ -102,7 +102,7 @@ function AppLayout({ children }) {
       <Footer>
         <Row justify="center">
           <Col>
-            Catalisa Bootcamp DB1 ©2023
+            Bootcamp DB1 © 2023
           </Col>
         </Row>
       </Footer>
