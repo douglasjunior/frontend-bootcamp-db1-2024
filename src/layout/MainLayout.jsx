@@ -1,51 +1,54 @@
+import { Suspense, lazy } from 'react';
 import {
   Routes, Route, Navigate,
 } from 'react-router-dom';
 
-import PrivateRoute from '../components/PrivateRoute';
-import LoginPage from '../pages/LoginPage';
-import SubscriptionPage from '../pages/SubscriptionPage';
-import TaskCreatePage from '../pages/TaskCreatePage';
-import TaskListPage from '../pages/TaskListPage';
-import AppLayout from './AppLayout';
+const PrivateRoute = lazy(() => import('../components/PrivateRoute'));
+const LoginPage = lazy(() => import('../pages/LoginPage'));
+const SubscriptionPage = lazy(() => import('../pages/SubscriptionPage'));
+const TaskCreatePage = lazy(() => import('../pages/TaskCreatePage'));
+const TaskListPage = lazy(() => import('../pages/TaskListPage'));
+const AppLayout = lazy(() => import('./AppLayout'));
 
 function MainLayout() {
   return (
-    <Routes>
-      <Route path="/" element={<Navigate to="/tasks" />} />
-      <Route
-        path="/tasks"
-        element={(
-          <PrivateRoute>
-            <AppLayout>
-              <TaskListPage />
-            </AppLayout>
-          </PrivateRoute>
-        )}
-      />
-      <Route
-        path="/tasks/new"
-        element={(
-          <PrivateRoute>
-            <AppLayout>
-              <TaskCreatePage />
-            </AppLayout>
-          </PrivateRoute>
-        )}
-      />
-      <Route
-        path="/tasks/:taskId"
-        element={(
-          <PrivateRoute>
-            <AppLayout>
-              <TaskCreatePage />
-            </AppLayout>
-          </PrivateRoute>
-        )}
-      />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/subscription" element={<SubscriptionPage />} />
-    </Routes>
+    <Suspense>
+      <Routes>
+        <Route path="/" element={<Navigate to="/tasks" />} />
+        <Route
+          path="/tasks"
+          element={(
+            <PrivateRoute>
+              <AppLayout>
+                <TaskListPage />
+              </AppLayout>
+            </PrivateRoute>
+          )}
+        />
+        <Route
+          path="/tasks/new"
+          element={(
+            <PrivateRoute>
+              <AppLayout>
+                <TaskCreatePage />
+              </AppLayout>
+            </PrivateRoute>
+          )}
+        />
+        <Route
+          path="/tasks/:taskId"
+          element={(
+            <PrivateRoute>
+              <AppLayout>
+                <TaskCreatePage />
+              </AppLayout>
+            </PrivateRoute>
+          )}
+        />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/subscription" element={<SubscriptionPage />} />
+      </Routes>
+    </Suspense>
   );
 }
 
