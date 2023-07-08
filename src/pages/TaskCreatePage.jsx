@@ -48,6 +48,8 @@ function TaskCreatePage() {
   useEffect(() => {
     if (taskId) {
       requestTask();
+    } else {
+      setFormValues({});
     }
   }, [requestTask, taskId]);
 
