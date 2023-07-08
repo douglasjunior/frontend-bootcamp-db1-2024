@@ -9,8 +9,8 @@ import axios from 'axios';
 
 import Logo from '../assets/logo-db1-group.png';
 import InputText from '../components/InputText';
-import { validateEmail, validatePassword } from '../helpers/validation-helper';
 import LocalStorageHelper from '../helpers/localstorage-helper';
+import { validateEmail, validatePassword } from '../validatiors/usuarios';
 
 const { Content } = Layout;
 const { Title } = Typography;
@@ -28,16 +28,7 @@ function LoginPage() {
 
       if (!email?.valid || !senha?.valid) return;
 
-      const body = {
-        email: email.value,
-        senha: senha.value,
-      };
-
-      const response = await axios.post('/usuarios/login', body);
-
-      LocalStorageHelper.setToken(response.data.token);
-
-      navigate('/tasks');
+      // TODO: implementar
     } catch (error) {
       console.warn(error);
       const { response } = error;

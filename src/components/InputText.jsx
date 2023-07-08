@@ -45,6 +45,12 @@ function InputText(props) {
         {...others}
         required={required}
         onChange={handleValidation}
+        /**
+         * Seta um suffix vazio para o Input para previnir que ocorra a perca
+         * de foco durante a validação.
+         *
+         * Docs: https://ant.design/components/input#why-input-lose-focus-when-change-prefixsuffixshowcount
+         */
         suffix={<span />}
       />
     </Form.Item>

@@ -6,8 +6,9 @@ import { Content } from 'antd/es/layout/layout';
 import axios from 'axios';
 import { useEffect, useCallback, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+
 import InputText from '../components/InputText';
-import { validateTaskTitle } from '../helpers/validation-helper';
+import { validateTaskTitle } from '../validatiors/tarefas';
 
 function TaskCreatePage() {
   const { taskId } = useParams();
@@ -28,13 +29,7 @@ function TaskCreatePage() {
     try {
       setLoading(true);
 
-      const { data } = await axios.get(`/tarefas/${taskId}`);
-
-      setFormValues({
-        titulo: {
-          value: data.titulo,
-        },
-      });
+      // TODO: implementar
     } catch (error) {
       console.warn(error);
       Modal.error({
@@ -61,25 +56,7 @@ function TaskCreatePage() {
 
       if (!titulo?.valid) return;
 
-      const body = {
-        titulo: titulo.value,
-      };
-
-      if (taskId) {
-        await axios.patch(`/tarefas/${taskId}`, body);
-
-        notification.success({
-          message: 'Tarefa atualizada com sucesso',
-        });
-      } else {
-        await axios.post('/tarefas', body);
-
-        notification.success({
-          message: 'Tarefa cadastrada com sucesso',
-        });
-      }
-
-      navigate('/tasks');
+      // TODO: implementar
     } catch (error) {
       console.warn(error);
       Modal.error({

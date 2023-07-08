@@ -3,6 +3,13 @@ import {
   Routes, Route, Navigate,
 } from 'react-router-dom';
 
+/**
+ * Arquivos importadas utilizando a técnica de lazy/Suspense do React.
+ * Docs: https://pt-br.react.dev/reference/react/Suspense
+ *
+ * Isso permite que os arquivos sejam carregados apenas quando as páginas foram acessadas
+ * pelo usuário.
+ */
 const PrivateRoute = lazy(() => import('../components/PrivateRoute'));
 const LoginPage = lazy(() => import('../pages/LoginPage'));
 const SubscriptionPage = lazy(() => import('../pages/SubscriptionPage'));

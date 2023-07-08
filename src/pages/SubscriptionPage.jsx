@@ -9,7 +9,7 @@ import axios from 'axios';
 
 import Logo from '../assets/logo-db1-group.png';
 import InputText from '../components/InputText';
-import { validateEmail, validateName, validatePassword } from '../helpers/validation-helper';
+import { validateEmail, validateName, validatePassword } from '../validatiors/usuarios';
 
 const { Content } = Layout;
 const { Title } = Typography;
@@ -27,31 +27,11 @@ function SubscriptionPage() {
 
       if (!nome?.valid || !email?.valid || !senha?.valid) return;
 
-      const body = {
-        nome: nome.value,
-        email: email.value,
-        senha: senha.value,
-      };
-
-      await axios.post('/usuarios', body);
-
-      Modal.success({
-        title: 'Cadastro realizado com sucesso, efetue login para continuar.',
-      });
-
-      navigate('/login');
+      // TODO: implementar
     } catch (error) {
       console.warn(error);
       const { response } = error;
-      if (response?.status === 422) {
-        Modal.error({
-          title: 'E-mail já cadastrado no banco de dados.',
-        });
-      } else {
-        Modal.error({
-          title: 'Não foi cadastrar-se, tente novamente mais tarde.',
-        });
-      }
+      // TODO: implementar tratamento de erro
     } finally {
       setLoading(false);
     }

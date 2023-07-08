@@ -1,14 +1,20 @@
 import JwtDecode from 'jwt-decode';
 
+/**
+ * Armazena o token de autenticação na localStorage
+ * do navegador.
+ *
+ * Docs: https://developer.mozilla.org/pt-BR/docs/Web/API/Window/localStorage
+ */
 const LocalStorageHelper = {
   setToken(token) {
-    window.localStorage.setItem('USER_TOKEN', token);
+    window.localStorage.setItem('AUTHENTICATION_TOKEN', token);
   },
   getToken() {
-    return window.localStorage.getItem('USER_TOKEN');
+    return window.localStorage.getItem('AUTHENTICATION_TOKEN');
   },
   removeToken() {
-    window.localStorage.removeItem('USER_TOKEN');
+    window.localStorage.removeItem('AUTHENTICATION_TOKEN');
   },
   isAuthenticated() {
     try {
@@ -16,6 +22,11 @@ const LocalStorageHelper = {
 
       if (!token) return false;
 
+      /**
+       * Faz o decode do payload do token para verificar a data de validade.
+       *
+       * Docs: https://github.com/auth0/jwt-decode
+       */
       const payload = JwtDecode(token);
 
       const expirationDate = new Date(payload.exp * 1000);

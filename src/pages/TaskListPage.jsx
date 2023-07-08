@@ -3,7 +3,6 @@ import {
   Layout, Row, Col, Table, Modal, Button, Space, Popconfirm,
 } from 'antd';
 import axios from 'axios';
-
 import {
   BorderOutlined, CheckOutlined, DeleteOutlined, FormOutlined,
 } from '@ant-design/icons';
@@ -21,8 +20,7 @@ function TaskListPage() {
     try {
       setLoading(true);
 
-      const response = await axios.get('/tarefas');
-      setTasks(response.data);
+      // TODO: implementar
     } catch (error) {
       console.warn(error);
       Modal.error({
@@ -41,13 +39,7 @@ function TaskListPage() {
     try {
       setLoading(true);
 
-      if (concluida) {
-        await axios.put(`/tarefas/${taskId}/concluida`);
-      } else {
-        await axios.put(`/tarefas/${taskId}/pendente`);
-      }
-
-      await requestTasks();
+      // TODO: implementar
     } catch (error) {
       console.warn(error);
       Modal.error({
@@ -62,9 +54,7 @@ function TaskListPage() {
     try {
       setLoading(true);
 
-      await axios.delete(`/tarefas/${taskId}`);
-
-      await requestTasks();
+      // TODO: implementar
     } catch (error) {
       console.warn(error);
       Modal.error({
