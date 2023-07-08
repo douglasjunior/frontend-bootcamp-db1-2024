@@ -15,5 +15,11 @@ module.exports = {
     ],
     'react/react-in-jsx-scope': 'off',
     'react/button-has-type': 'off',
+    'react/prop-types': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'no-console': [
+      'warn',
+      { allow: ['warn'] },
+    ],
   },
 };
