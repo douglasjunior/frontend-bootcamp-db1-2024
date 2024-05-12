@@ -1,3 +1,8 @@
+/*
+ * Faz o reset dos estilos CSS padrões do navegador.
+ * Saiba mais: https://www.alura.com.br/artigos/o-que-e-reset-css
+ */
+
 html, body {
   height: 100vh;
 }

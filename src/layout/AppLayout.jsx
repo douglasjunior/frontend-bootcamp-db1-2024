@@ -11,6 +11,9 @@ import './AppLayout.css';
 
 const { Header, Footer } = Layout;
 
+/**
+ * Define as rotas do menu principal da aplicação.
+ */
 const MENU_ITEMS = [
   {
     path: '/tasks',
@@ -27,11 +30,14 @@ function AppLayout({ children }) {
   const navigate = useNavigate();
 
   const selectedKeys = useMemo(() => {
-    const cuerrentRoute = MENU_ITEMS.find((item) => matchPath(item.path, location.pathname));
+    /**
+     * Detecta qual a página que está aberta no momento para marcar o menu como selecionado.
+     */
+    const currentRoute = MENU_ITEMS.find((item) => matchPath(item.path, location.pathname));
 
-    if (!cuerrentRoute) return [];
+    if (!currentRoute) return [];
 
-    return [cuerrentRoute.path];
+    return [currentRoute.path];
   }, [location]);
 
   const renderMenuItem = (item) => (

@@ -11,8 +11,8 @@ axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL;
 
 axios.interceptors.request.use((request) => {
   /**
-   * Utilza um interceptor do axios para injetar automaticamente o token
-   * de autenticanção na requisição
+   * Utiliza um interceptor do axios para injetar automaticamente o token
+   * de autenticação nas requisições.
    *
    * Docs: https://axios-http.com/docs/interceptors
    */

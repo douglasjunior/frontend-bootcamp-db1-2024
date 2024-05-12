@@ -32,6 +32,9 @@ const LocalStorageHelper = {
       const expirationDate = new Date(payload.exp * 1000);
       const currentDate = new Date();
 
+      /**
+       * Se o token tiver válido retorna true, se tiver vencido retorna false.
+       */
       return expirationDate > currentDate;
     } catch (error) {
       console.warn(error);

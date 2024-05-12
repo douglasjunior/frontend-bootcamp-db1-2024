@@ -117,7 +117,7 @@ function LoginPage() {
             <br />
 
             <Typography.Text>
-              Entao não possui conta?
+              Não possui conta?
               {' '}
               <Link
                 to="/subscription"
