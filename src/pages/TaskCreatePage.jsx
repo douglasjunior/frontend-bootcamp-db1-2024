@@ -73,7 +73,7 @@ function TaskCreatePage() {
       <Space direction="vertical" style={{ display: 'flex' }}>
 
         <Row justify="center">
-          <Col xs={23} sl={14} md={12} lg={10} xl={8}>
+          <Col xs={23} sm={14} md={12} lg={10} xl={8}>
 
             <Form layout="vertical">
               <InputText

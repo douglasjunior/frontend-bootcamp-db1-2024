@@ -108,7 +108,7 @@ function AppLayout({ children }) {
       <Footer>
         <Row justify="center">
           <Col>
-            Bootcamp DB1 © 2023
+            Bootcamp DB1 © 2024
           </Col>
         </Row>
       </Footer>
