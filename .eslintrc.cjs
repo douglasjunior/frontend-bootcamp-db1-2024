@@ -21,5 +21,6 @@ module.exports = {
       'warn',
       { allow: ['warn'] },
     ],
+    'import/prefer-default-export': 'off',
   },
 };
