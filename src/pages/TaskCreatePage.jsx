@@ -29,7 +29,14 @@ function TaskCreatePage() {
     try {
       setLoading(true);
 
-      // TODO: implementar
+      const response = await axios.get(`/tasks/${taskId}`);
+
+      setFormValues({
+        titulo: {
+          value: response.data.title,
+          valid: true,
+        },
+      });
     } catch (error) {
       console.warn(error);
       Modal.error({
@@ -56,13 +63,23 @@ function TaskCreatePage() {
 
       if (!titulo?.valid) return;
 
-      await axios.post('/tasks', {
-        title: titulo.value,
-      });
-
-      notification.success({
-        message: 'Tarefa criada com sucesso!',
-      });
+      if (taskId) {
+        // editando
+        await axios.patch(`/tasks/${taskId}`, {
+          title: titulo.value,
+        });
+        notification.success({
+          message: 'Tarefa editada com sucesso!',
+        });
+      } else {
+        // cadastrando
+        await axios.post('/tasks', {
+          title: titulo.value,
+        });
+        notification.success({
+          message: 'Tarefa criada com sucesso!',
+        });
+      }
 
       navigate('/');
     } catch (error) {
