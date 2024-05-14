@@ -56,11 +56,19 @@ function TaskCreatePage() {
 
       if (!titulo?.valid) return;
 
-      // TODO: implementar
+      await axios.post('/tasks', {
+        title: titulo.value,
+      });
+
+      notification.success({
+        message: 'Tarefa criada com sucesso!',
+      });
+
+      navigate('/');
     } catch (error) {
       console.warn(error);
       Modal.error({
-        title: 'Não foi cadastrar-se, tente novamente mais tarde.',
+        title: 'Não foi possível cadastrar a tarefa, tente novamente mais tarde.',
       });
     } finally {
       setLoading(false);
