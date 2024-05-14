@@ -62,7 +62,9 @@ function TaskListPage() {
     try {
       setLoading(true);
 
-      // TODO: implementar
+      await axios.delete(`/tasks/${taskId}`);
+
+      await requestTasks();
     } catch (error) {
       console.warn(error);
       Modal.error({
