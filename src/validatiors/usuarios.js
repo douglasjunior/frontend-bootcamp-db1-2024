@@ -23,5 +23,9 @@ export const validatePassword = (text) => {
 };
 
 export const validateName = (text) => {
-  // TODO: implementar
+  if (!text) return 'Campo obrigatório.';
+
+  if (text.length < 1 || text.length > 200) return 'O nome deve ter no mínimo 1 e no máximo 200 caracteres.';
+
+  return undefined;
 };

@@ -27,11 +27,30 @@ function SubscriptionPage() {
 
       if (!nome?.valid || !email?.valid || !senha?.valid) return;
 
-      // TODO: implementar
+      await axios.post('/users', {
+        name: nome.value,
+        email: email.value,
+        password: senha.value,
+      });
+
+      Modal.success({
+        title: 'Usuário cadastrado com sucesso, faça login para continuar.',
+      });
+
+      navigate('/login');
     } catch (error) {
       console.warn(error);
       const { response } = error;
-      // TODO: implementar tratamento de erro
+
+      if (response?.status === 412) {
+        Modal.error({
+          title: 'E-mail já cadastrado no banco de dados.',
+        });
+      } else {
+        Modal.error({
+          title: 'Não foi possível cadastrar o usuário no momento, tente novamente mais tarde.',
+        });
+      }
     } finally {
       setLoading(false);
     }
