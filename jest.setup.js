@@ -1,5 +1,8 @@
 import '@testing-library/jest-dom/jest-globals';
-import { jest } from '@jest/globals';
+import { jest, afterEach } from '@jest/globals';
+import { cleanup } from '@testing-library/react';
+
+afterEach(cleanup);
 
 Object.defineProperty(window, 'matchMedia', {
   writable: true,

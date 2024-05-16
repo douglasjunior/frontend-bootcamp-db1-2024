@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InputText should render the snapshot with default props 1`] = `
+exports[`InputText snapshot should render the snapshot with default props 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
